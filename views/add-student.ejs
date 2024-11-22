@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+        <div class="flex justify-between">
+            <a href="/" class="inline-block bg-blue-100 px-4 py-2 rounded-md mb-4 hover:bg-blue-200">
+                Home
+            </a>
+            <a href="/students" class="inline-block bg-blue-100 px-4 py-2 rounded-md mb-4 hover:bg-blue-200">
+                Students List
+            </a>
+        </div>
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Add New Student</h1>
+        <form action="/students/add" method="POST" class="space-y-4">
+            <!-- First Name -->
+            <div>
+                <label for="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+                <input type="text" id="firstname" name="firstname"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    required>
+            </div>
+            <!-- Last Name -->
+            <div>
+                <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+                <input type="text" id="lastname" name="lastname"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    required>
+            </div>
+            <!-- Date of Birth -->
+            <div>
+                <label for="dob" class="block text-sm font-medium text-gray-700">Date of Birth</label>
+                <input type="date" id="dob" name="dob"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    required>
+            </div>
+            <!-- Submit Button -->
+            <div>
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none">
+                    Add Student
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
