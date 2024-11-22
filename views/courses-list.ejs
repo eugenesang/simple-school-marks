@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-6 pb-0 flex justify-between">
+        <a href="/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-blue-700">
+            Home
+        </a>
+        <a href="/courses/add"
+            class="inline-block bg-green-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-green-700">
+            Add New Course
+        </a>
+    </div>
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Courses List</h1>
+
+        <table class="min-w-full bg-white border border-gray-200 shadow-md rounded-md">
+            <thead class="text-left">
+                <tr class="bg-gray-200 text-gray-700">
+                    <th class="px-4 py-2 border-b">Course ID</th>
+                    <th class="px-4 py-2 border-b">Course Name</th>
+                    <th class="px-4 py-2 border-b">Credits</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% courses.forEach(course=> { %>
+                    <tr>
+                        <td class="px-4 py-2 border-b">
+                            <%= course.courseid %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <%= course.coursename %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <%= course.credits %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
