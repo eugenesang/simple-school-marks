@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto p-6 pb-0 flex justify-between">
+        <a href="/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-blue-700">
+            Home
+        </a>
+        <a href="/students/add"
+            class="inline-block bg-green-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-green-700">
+            Add New Student
+        </a>
+    </div>
+    <div class="container mx-auto p-6 pt-2">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6">Students List</h1>
+
+        <table class="table-auto min-w-full bg-white border border-gray-200 shadow-md rounded-md">
+            <thead>
+                <tr class="bg-gray-200 text-gray-700 text-left">
+                    <th class="px-4 py-2 border-b">Student ID</th>
+                    <th class="px-4 py-2 border-b">First Name</th>
+                    <th class="px-4 py-2 border-b">Last Name</th>
+                    <th class="px-4 py-2 border-b">Date of Birth</th>
+                    <th class="px-4 py-2 border-b">View</th>
+                    <th class="px-4 py-2 border-b">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.forEach(student=> { %>
+                    <tr>
+                        <td class="px-4 py-2 border-b">
+                            <%= student.studentid %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <%= student.firstname %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <%= student.lastname %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <%= new Date(student.dob).toLocaleDateString('en-us', { year: 'numeric' , month: 'short' ,
+                                day: '2-digit' }) %>
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <a href="/students/<%= student.studentid %>"
+                                class="bg-blue-600 text-white px-3 py-1 rounded-md hover:bg-blue-700">
+                                View Grades
+                            </a>
+
+                        </td>
+                        <td class="px-4 py-2 border-b">
+                            <a href="/students/<%= student.studentid %>/grade"
+                                class="bg-purple-600 text-white px-3 py-1 rounded-md hover:bg-purple-700">
+                                Add Grade
+                            </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
