@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Grade</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-6 pb-0">
+        <a href="/" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md mb-4 hover:bg-blue-700">
+            Home
+        </a>
+    </div>
+    <div class="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Add Grade for <%= student.firstname %>
+                <%= student.lastname %>
+        </h1>
+        <form action="/students/<%= studentid %>/grade" method="POST">
+            <!-- Course ID -->
+            <div class="mb-4">
+                <label for="courseid" class="block text-sm font-medium text-gray-700">Course</label>
+                <select name="courseid" id="courseid"
+                    class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="" selected>Select Course</option>
+                    <% courses.forEach(({ courseid, coursename })=> { %>
+                        <option value="<%= courseid %>">
+                            <%= coursename %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+
+            <!-- Term -->
+            <div class="mb-4">
+                <label for="term" class="block text-sm font-medium text-gray-700">Term</label>
+                <select id="term" name="term"
+                    class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    required>
+                    <option value="" selected>Select Term</option>
+                    <% terms.forEach(t=> { %>
+                        <option value="<%= t%>">
+                            <%= t %>
+                        </option>
+                        <% }); %>
+                </select>
+            </div>
+
+            <!-- Grade -->
+            <div class="mb-4">
+                <label for="grade" class="block text-sm font-medium text-gray-700">Grade</label>
+                <select id="grade" name="grade"
+                    class="mt-1 block w-full p-2 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                    required>
+                    <option value="" selected>Select Grade</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="C-">C-</option>
+                    <option value="D">D</option>
+                    <option value="F">F</option>
+                </select>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
+                Submit
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
